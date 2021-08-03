@@ -24,30 +24,34 @@ static void print_status_narrow(void) {
     // Print current layer
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
-            oled_write_P(PSTR("Base\n"), false);
+            oled_write_P(PSTR("Base"), false);
             break;
         case _LOWER:
-            oled_write_P(PSTR("Lower"), false);
+            oled_write_P(PSTR("Ext"), false);
             break;
         case _RAISE:
-            oled_write_P(PSTR("Raise"), false);
+            oled_write_P(PSTR("Sym"), false);
             break;
         case _ADJUST:
-            oled_write_P(PSTR("Adj\n"), false);
+            oled_write_P(PSTR("Adj"), false);
             break;
         default:
-            oled_write_P(PSTR("Undef"), false);
+            oled_write_P(PSTR("???"), false);
     }
-    oled_write_P(PSTR("\n\n"), false);
+    oled_write_P(PSTR("\n\n\n"), false);
 
     uint8_t mode = rgb_matrix_get_mode();
     char mode_string[3];
     itoa(mode, mode_string, 10);
     oled_write_ln(mode_string, false);
-    oled_write_ln("", false);
+    oled_write_P(PSTR("\n\n"), false);
 
     led_t led_usb_state = host_keyboard_led_state();
-    oled_write_ln_P(PSTR("CPSLK"), led_usb_state.caps_lock);
+    if (led_usb_state.caps_lock) {
+      oled_write_ln_P(PSTR("CPSLK"), false);
+    } else {
+      oled_write_ln_P(PSTR("    "), false);
+    }
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
