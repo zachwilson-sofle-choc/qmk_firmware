@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "choc.h"
+#include "sofle_choc.h"
 
 #ifdef RGB_MATRIX_ENABLE
 
