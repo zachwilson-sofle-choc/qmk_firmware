@@ -218,19 +218,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------------.                         ,-----------------------------------------.
  * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |                        | CLMK | QWTY |  NIX | MAC  |      |      |
  * |------+------+------+------+------+------|                        |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                        |      |      |  Up  |      | Home | PgUp |
- * |------+------+------+------+------+------|                        |------+------+------+------+------+------|
- * |      | Ctrl | LOpt | LCmd | Shft |  Del |-------.        ,-------| Bspc | Left | Down | Right| End  | PgDn |
+ * |      |      |      |      |      |      |                        |      |      |  Up  |      |      |      |
+ * |------+------+------+------+------+------|                        |------+------+------+------+------|------|
+ * |      | Ctrl | LOpt | LCmd | Shft |  Del |-------.        ,-------| Bspc | Left | Down | Right|      |      |
  * |------+------+------+------+------+------|       |        |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|        |-------|      | Ent  |      |      |*TRNS*|      |
+ * |      |      |      |      |      |      |-------|        |-------|      | Ent  | Home | End  |*TRNS*|      |
  * `-----------------------------------------'  /------/    \------\  '-----------------------------------------'
- *               | LOpt | LCmd | Shft | LCtrl| /  Ent /      \ Bspc \ | RCtl | Spc  |      |      |
+ *               | LOpt | LCmd | Shft | LCtrl| /  Ent /      \ Bspc \ | RCtl | Spc  | PgUp | PgDn |
  *               `----------------------------/------/        \------\----------------------------'
  */
   [_MV] = LAYOUT(
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      CLMK,    QWTY,    NIX,     MAC,      XXXXXXX, XXXXXXX,
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX,  XXXXXXX, XXXXXXX,
-      XXXXXXX, KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_DEL,                       KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, KC_PGDN,
+      XXXXXXX, KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_DEL,                       KC_BSPC, KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX,
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, KC_ENT,  KC_HOME, KC_END,   KC_TRNS, XXXXXXX,
                         _______, _______, L_S_SPC, _______, _______,    _______, KC_RCTL, R_S_SPC, KC_PGUP, KC_PGDN),
 };
