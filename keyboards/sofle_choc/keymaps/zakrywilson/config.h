@@ -32,6 +32,7 @@
   #undef TAPPING_TERM
 #endif
 #define TAPPING_TERM 200
+#define TAPPING_TOGGLE 3
 
 #ifdef COMBO_ENABLE
   #define COMBO_COUNT 18
