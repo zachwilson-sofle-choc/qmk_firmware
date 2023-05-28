@@ -30,10 +30,12 @@ enum sofle_layers {
 #define MAC AG_SWAP   // Swap Alt/Opt and Gui/Cmd to work for Mac
 #define NIX AG_NORM   // Unswap Alt/Opt and Gui/Cmd to work for Linux (default)
 
-
 #define PRV_WS LCTL(LWIN(KC_LEFT))   // Previous workspace (formerly M2)
 #define NXT_WS LCTL(LWIN(KC_RIGHT))  // Next workspace (formerly M3)
 #define C_SLSH LCTL(KC_SLSH)         // Ctrl+Slash (formerly M6)
+
+#define MUTE_S LCTL(LALT(KC_SPC))    // Mute Slack
+#define MUTE_T LCTL(LALT(KC_M))      // Mute Teams
 
 #ifdef COMBO_ENABLE
 
@@ -72,7 +74,7 @@ enum combos {
   W_S__AT,
   E_D__HASH,
   R_F_DLR,
-  T_H__PERC,
+  T_G__PERC,
   Y_H__CIRC,
   U_J__AMPR,
   I_K__ASTR,
@@ -91,7 +93,7 @@ const uint16_t PROGMEM qa_combo[]    = {KC_Q, KC_A, COMBO_END};
 const uint16_t PROGMEM ws_combo[]    = {KC_W, KC_S, COMBO_END};
 const uint16_t PROGMEM ed_combo[]    = {KC_E, KC_D, COMBO_END};
 const uint16_t PROGMEM rf_combo[]    = {KC_R, KC_F, COMBO_END};
-const uint16_t PROGMEM th_combo[]    = {KC_T, KC_H, COMBO_END};
+const uint16_t PROGMEM tg_combo[]    = {KC_T, KC_G, COMBO_END};
 const uint16_t PROGMEM yh_combo[]    = {KC_Y, KC_H, COMBO_END};
 const uint16_t PROGMEM uj_combo[]    = {KC_U, KC_J, COMBO_END};
 const uint16_t PROGMEM ik_combo[]    = {KC_I, KC_K, COMBO_END};
@@ -110,7 +112,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [W_S__AT]      = COMBO(ws_combo, KC_AT),
   [E_D__HASH]    = COMBO(ed_combo, KC_HASH),
   [R_F_DLR]      = COMBO(rf_combo, KC_DLR),
-  [T_H__PERC]    = COMBO(th_combo, KC_PERC),
+  [T_G__PERC]    = COMBO(tg_combo, KC_PERC),
   [Y_H__CIRC]    = COMBO(yh_combo, KC_CIRC),
   [U_J__AMPR]    = COMBO(uj_combo, KC_AMPR),
   [I_K__ASTR]    = COMBO(ik_combo, KC_ASTR),
@@ -158,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |                        |   Y  |   U  |   I  |   O  |   P  |  -   |
  * |------+------+------+------+------+------|                        |------+------+------+------+------+------|
  * | Esc  |   A  |   S  |   D  |   F  |   G  |-------.        ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
- * |------+------+------+------+------+------|  Mute |        |       |------+------+------+------+------+------|
+ * |------+------+------+------+------+------|  Mute |        | Mute  |------+------+------+------+------+------|
  * | LCtrl|   Z  |   X  |   C  |   V  |   B  |-------'        `-------|   N  |   M  |   ,  |   .  |   /  |  \   |
  * `-----------------------------------------'  /------/    \------\  '-----------------------------------------'
  *               | LAlt | Shft | SYM  | Spc  | / Bspc /      \ Ent  \ | Shft | SYM  | NAV  | LWin |
@@ -168,7 +170,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_GRV,  KC_1, KC_2,    KC_3,    KC_4, KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,   KC_0,    KC_DEL,
       KC_TAB,  KC_Q, KC_W,    KC_E,    KC_R, KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,    KC_MINS,
       KC_ESC,  KC_A, KC_S,    KC_D,    KC_F, KC_G,                        KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,
-      KC_LCTL, KC_Z, KC_X,    KC_C,    KC_V, KC_B,   KC_MUTE,    XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH, KC_BSLS,
+      KC_LCTL, KC_Z, KC_X,    KC_C,    KC_V, KC_B,    MUTE_S,    MUTE_T, KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH, KC_BSLS,
                      KC_LALT, KC_LSFT, SYM,  KC_SPC, KC_BSPC,    KC_ENT,  KC_LSFT, SYM,     NAV,     KC_LWIN),
 
 /* SYM
