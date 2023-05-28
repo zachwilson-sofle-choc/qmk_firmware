@@ -225,9 +225,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     }
   } else if (index == 1) { // Right encoder
     if (clockwise) {
-      tap_code(KC_RIGHT);
+      tap_code(KC_WH_R);
     } else {
-      tap_code(KC_LEFT);
+      tap_code(KC_WH_L);
     }
   }
   return false;
