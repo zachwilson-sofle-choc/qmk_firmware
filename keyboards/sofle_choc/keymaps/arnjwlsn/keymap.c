@@ -161,7 +161,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |                        |   Y  |   U  |   I  |   O  |   P  |  -   |
  * |------+------+------+------+------+------|                        |------+------+------+------+------+------|
  * | Esc  |   A  |   S  |   D  |   F  |   G  |-------.        ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
- * |------+------+------+------+------+------|  Mute |        | Pause |------+------+------+------+------+------|
+ * |------+------+------+------+------+------|  Mute |        |       |------+------+------+------+------+------|
  * | LCtrl|   Z  |   X  |   C  |   V  |   B  |-------'        `-------|   N  |   M  |   ,  |   .  |   /  |  \   |
  * `-----------------------------------------'  /------/    \------\  '-----------------------------------------'
  *               | LAlt | Shft | NAV  | Spc  | / Bspc /      \ Ent  \ | Shft | NAV  | SYM  | LWin |
@@ -171,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_GRV,  KC_1, KC_2,    KC_3,    KC_4, KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,   KC_0,    KC_DEL,
       KC_TAB,  KC_Q, KC_W,    KC_E,    KC_R, KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,    KC_MINS,
       KC_ESC,  KC_A, KC_S,    KC_D,    KC_F, KC_G,                        KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT,
-      KC_LCTL, KC_Z, KC_X,    KC_C,    KC_V, KC_B,   KC_MUTE,    KC_MPLY, KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH, KC_BSLS,
+      KC_LCTL, KC_Z, KC_X,    KC_C,    KC_V, KC_B,   KC_MUTE,    XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH, KC_BSLS,
                      KC_LALT, KC_LSFT, NAV,  KC_SPC, KC_BSPC,    KC_ENT,  KC_LSFT, NAV,     SYM,     KC_LWIN),
 
 /* SYM
@@ -220,15 +220,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool encoder_update_user(uint8_t index, bool clockwise) {
   if (index == 0) { // Left encoder
     if (clockwise) {
-      tap_code(KC_PGDN);
+      tap_code(KC_VOLU);
     } else {
-      tap_code(KC_PGUP);
+      tap_code(KC_VOLD);
     }
   } else if (index == 1) { // Right encoder
     if (clockwise) {
-      tap_code(KC_DOWN);
+      tap_code(KC_RIGHT);
     } else {
-      tap_code(KC_UP);
+      tap_code(KC_LEFT);
     }
   }
   return false;
