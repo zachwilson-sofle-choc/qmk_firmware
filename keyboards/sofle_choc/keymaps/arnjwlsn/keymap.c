@@ -198,20 +198,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------------.                         ,-----------------------------------------.
  * |      |      |      |      |      |      |                        |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                        |------+------+------+------+------+------|
- * |      |      |  Up  |      |      |      |                        |      |      |  Up  |      | Print|      |
+ * |      |   0  |   1  |   2  |   3  |      |                        |      |      |  Up  |      | Print|      |
  * |------+------+------+------+------+------|                        |------+------+------+------+------|------|
- * |      | Left | Down | Right|      |      |-------.        ,-------|      | Right| Down | Right|      | Home |
+ * |      |      |   4  |   5  |   6  |      |-------.        ,-------|      | Right| Down | Right|      | Home |
  * |------+------+------+------+------+------|       |        |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|        |-------|      |      | PrvWS| NxtWS| CSlsh| End  |
+ * |      |      |   7  |   8  |   9  |   0  |-------|        |-------|      |      | PrvWS| NxtWS| CSlsh| End  |
  * `-----------------------------------------'  /------/    \------\  '-----------------------------------------'
  *               |      |      |*TRNS*|      | /      /      \      \ |      |*TRNS*|      |      |
  *               `----------------------------/------/        \------\----------------------------'
  */
   [_NAV] = LAYOUT(
       _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, XXXXXXX,
-      _______, XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, KC_PSCR, XXXXXXX,
-      _______, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, KC_HOME,
-      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,    _______, XXXXXXX, XXXXXXX,  PRV_WS,  NXT_WS,  C_SLSH, KC_END,
+      _______,    KC_0,    KC_1,    KC_2,    KC_3, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, KC_PSCR, XXXXXXX,
+      _______, XXXXXXX,    KC_4,    KC_5,    KC_6, XXXXXXX,                      XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, KC_HOME,
+      _______, XXXXXXX,    KC_7,    KC_8,    KC_9,    KC_0, _______,    _______, XXXXXXX, XXXXXXX,  PRV_WS,  NXT_WS,  C_SLSH, KC_END,
                         _______, _______, KC_TRNS, _______, _______,    _______, _______, KC_TRNS, _______, _______),
 };
 
