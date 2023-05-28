@@ -37,46 +37,6 @@ enum sofle_layers {
 
 #ifdef COMBO_ENABLE
 
-enum combos {
-  Q_A__EXLM,
-  W_R__AT,
-  F_S__HASH,
-  P_T_DLR,
-  G_G__PERC,
-  J_H__CIRC,
-  L_N__AMPR,
-  U_E__ASTR,
-  Y_I__LPRN,
-  SCLN_O__RPRN,
-  P_G__DEL,
-  J_L__DEL,
-  T_D__BSPC,
-  H_N__BSPC,
-  X_C__S_TAB,
-  C_V__TAB,
-  M_COMM__ENT,
-  D_B__SPC,
-};
-
-const uint16_t PROGMEM qa_combo[]    = {KC_Q, KC_A, COMBO_END};
-const uint16_t PROGMEM wr_combo[]    = {KC_W, KC_R, COMBO_END};
-const uint16_t PROGMEM fs_combo[]    = {KC_F, KC_S, COMBO_END};
-const uint16_t PROGMEM pt_combo[]    = {KC_P, KC_T, COMBO_END};
-const uint16_t PROGMEM gd_combo[]    = {KC_G, KC_D, COMBO_END};
-const uint16_t PROGMEM jh_combo[]    = {KC_J, KC_H, COMBO_END};
-const uint16_t PROGMEM ln_combo[]    = {KC_L, KC_N, COMBO_END};
-const uint16_t PROGMEM ue_combo[]    = {KC_U, KC_E, COMBO_END};
-const uint16_t PROGMEM yi_combo[]    = {KC_Y, KC_I, COMBO_END};
-const uint16_t PROGMEM sclno_combo[] = {KC_SCLN, KC_O, COMBO_END};
-const uint16_t PROGMEM pg_combo[]    = {KC_P, KC_G, COMBO_END};
-const uint16_t PROGMEM jl_combo[]    = {KC_J, KC_L, COMBO_END};
-const uint16_t PROGMEM td_combo[]    = {KC_T, KC_D, COMBO_END};
-const uint16_t PROGMEM hn_combo[]    = {KC_H, KC_N, COMBO_END};
-const uint16_t PROGMEM xc_combo[]    = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM cv_combo[]    = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM mcomm_combo[] = {KC_M, KC_COMM, COMBO_END};
-const uint16_t PROGMEM db_combo[]    = {KC_D, KC_B, COMBO_END};
-
 /*
  * Combomap (vertical)
  *
@@ -102,30 +62,67 @@ const uint16_t PROGMEM db_combo[]    = {KC_D, KC_B, COMBO_END};
  * |------+------+------+------+------+------|                        |------+------+------+------+------+------|
  * |      |      |      |      |     Bspc    |-------.        ,-------|     Bspc    |      |      |      |      |
  * |------+------+------+------+------+------|       |        |       |------+------+------+------+------+------|
- * |      |      |   S(Tab)   Tab    Spc     |-------|        |-------|      |     Ent     |      |      |      |
+ * |      |      |   S(Tab)   Tab     |      |-------|        |-------|      |     Ent     |      |      |      |
  * `-----------------------------------------'  /------/    \------\  '-----------------------------------------'
  *               |      |      |      |      | /      /      \      \ |      |      |      |      |
  *               `----------------------------/------/        \------\----------------------------'
  */
+enum combos {
+  Q_A__EXLM,
+  W_S__AT,
+  E_D__HASH,
+  R_F_DLR,
+  T_H__PERC,
+  Y_H__CIRC,
+  U_J__AMPR,
+  I_K__ASTR,
+  O_L__LPRN,
+  P_SCLN__RPRN,
+  R_T__DEL,
+  Y_U__DEL,
+  F_G__BSPC,
+  H_K__BSPC,
+  X_C__S_TAB,
+  C_V__TAB,
+  M_COMM__ENT,
+};
+
+const uint16_t PROGMEM qa_combo[]    = {KC_Q, KC_A, COMBO_END};
+const uint16_t PROGMEM ws_combo[]    = {KC_W, KC_S, COMBO_END};
+const uint16_t PROGMEM ed_combo[]    = {KC_E, KC_D, COMBO_END};
+const uint16_t PROGMEM rf_combo[]    = {KC_R, KC_F, COMBO_END};
+const uint16_t PROGMEM th_combo[]    = {KC_T, KC_H, COMBO_END};
+const uint16_t PROGMEM yh_combo[]    = {KC_Y, KC_H, COMBO_END};
+const uint16_t PROGMEM uj_combo[]    = {KC_U, KC_J, COMBO_END};
+const uint16_t PROGMEM ik_combo[]    = {KC_I, KC_K, COMBO_END};
+const uint16_t PROGMEM ol_combo[]    = {KC_O, KC_L, COMBO_END};
+const uint16_t PROGMEM pscln_combo[] = {KC_P, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM rt_combo[]    = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM yu_combo[]    = {KC_Y, KC_U, COMBO_END};
+const uint16_t PROGMEM fg_combo[]    = {KC_F, KC_G, COMBO_END};
+const uint16_t PROGMEM hk_combo[]    = {KC_H, KC_K, COMBO_END};
+const uint16_t PROGMEM xc_combo[]    = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM cv_combo[]    = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM mcomm_combo[] = {KC_M, KC_COMM, COMBO_END};
+
 combo_t key_combos[COMBO_COUNT] = {
   [Q_A__EXLM]    = COMBO(qa_combo, KC_EXLM),
-  [W_R__AT]      = COMBO(wr_combo, KC_AT),
-  [F_S__HASH]    = COMBO(fs_combo, KC_HASH),
-  [P_T_DLR]      = COMBO(pt_combo, KC_DLR),
-  [G_G__PERC]    = COMBO(gd_combo, KC_PERC),
-  [J_H__CIRC]    = COMBO(jh_combo, KC_CIRC),
-  [L_N__AMPR]    = COMBO(ln_combo, KC_AMPR),
-  [U_E__ASTR]    = COMBO(ue_combo, KC_ASTR),
-  [Y_I__LPRN]    = COMBO(yi_combo, KC_LPRN),
-  [SCLN_O__RPRN] = COMBO(sclno_combo, KC_RPRN),
-  [P_G__DEL]     = COMBO(pg_combo, KC_DEL),
-  [J_L__DEL]     = COMBO(jl_combo, KC_DEL),
-  [T_D__BSPC]    = COMBO(td_combo, KC_BSPC),
-  [H_N__BSPC]    = COMBO(hn_combo, KC_BSPC),
+  [W_S__AT]      = COMBO(ws_combo, KC_AT),
+  [E_D__HASH]    = COMBO(ed_combo, KC_HASH),
+  [R_F_DLR]      = COMBO(rf_combo, KC_DLR),
+  [T_H__PERC]    = COMBO(th_combo, KC_PERC),
+  [Y_H__CIRC]    = COMBO(yh_combo, KC_CIRC),
+  [U_J__AMPR]    = COMBO(uj_combo, KC_AMPR),
+  [I_K__ASTR]    = COMBO(ik_combo, KC_ASTR),
+  [O_L__LPRN]    = COMBO(ol_combo, KC_LPRN),
+  [P_SCLN__RPRN] = COMBO(pscln_combo, KC_RPRN),
+  [R_T__DEL]     = COMBO(rt_combo, KC_DEL),
+  [Y_U__DEL]     = COMBO(yu_combo, KC_DEL),
+  [F_G__BSPC]    = COMBO(fg_combo, KC_BSPC),
+  [H_K__BSPC]    = COMBO(hk_combo, KC_BSPC),
   [X_C__S_TAB]   = COMBO(xc_combo, S(KC_TAB)),
   [C_V__TAB]     = COMBO(cv_combo, KC_TAB),
   [M_COMM__ENT]  = COMBO(mcomm_combo, KC_ENT),
-  [D_B__SPC]     = COMBO(db_combo, KC_SPC),
 };
 
 #endif // COMBO_ENABLE
