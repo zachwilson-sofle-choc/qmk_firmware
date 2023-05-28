@@ -27,8 +27,8 @@ enum sofle_layers {
 
 #define NAV MO(_NAV)  // Momentarily turn on layer when pressed
 #define SYM MO(_SYM)  // Momentarily turn on layer when pressed
-#define NIX AG_SWAP   // Swap Alt/Opt and Gui/Cmd to work for Linux
-#define MAC AG_NORM   // Unswap Alt/Opt and Gui/Cmd to work for Mac (default)
+#define MAC AG_SWAP   // Swap Alt/Opt and Gui/Cmd to work for Mac
+#define NIX AG_NORM   // Unswap Alt/Opt and Gui/Cmd to work for Linux (default)
 
 
 #define PRV_WS LCTL(LWIN(KC_LEFT))   // Previous workspace (formerly M2)
@@ -208,8 +208,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *               `----------------------------/------/        \------\----------------------------'
  */
   [_NAV] = LAYOUT(
-      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, XXXXXXX,
-      _______,    KC_0,    KC_1,    KC_2,    KC_3, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, KC_PSCR, XXXXXXX,
+      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______,     MAC,
+      _______,    KC_0,    KC_1,    KC_2,    KC_3, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, KC_PSCR,     NIX,
       _______, XXXXXXX,    KC_4,    KC_5,    KC_6, XXXXXXX,                      XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, KC_HOME,
       _______, XXXXXXX,    KC_7,    KC_8,    KC_9,    KC_0, _______,    _______, XXXXXXX, XXXXXXX,  PRV_WS,  NXT_WS,  C_SLSH, KC_END,
                         _______, _______, KC_TRNS, _______, _______,    _______, _______, KC_TRNS, _______, _______),
@@ -254,18 +254,11 @@ static void print_status_narrow(void) {
   oled_write_ln_P(PSTR("MODE"), false);
   oled_write_ln_P(PSTR(""), false);
   if (keymap_config.swap_lalt_lgui) {
-    oled_write_ln_P(PSTR("Nix  "), false);
-  } else {
     oled_write_ln_P(PSTR("Mac  "), false);
+  } else {
+    oled_write_ln_P(PSTR("Nix  "), false);
   }
 
-  switch (get_highest_layer(default_layer_state)) {
-    case _BASE:
-      oled_write_ln_P(PSTR("Base"), false);
-      break;
-    default:
-      oled_write_P(PSTR("Undef"), false);
-  }
   oled_write_P(PSTR("\n\n"), false);
   // Print current layer
   oled_write_ln_P(PSTR("LAYER"), false);
