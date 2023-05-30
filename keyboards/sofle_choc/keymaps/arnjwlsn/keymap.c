@@ -34,8 +34,8 @@ enum sofle_layers {
 #define NXT_WS LCTL(LWIN(KC_RIGHT))  // Next workspace (formerly M3)
 #define C_SLSH LCTL(KC_SLSH)         // Ctrl+Slash (formerly M6)
 
-#define MUTE_S LCTL(LALT(KC_SPC))    // Mute Slack
-#define MUTE_T LCTL(LALT(KC_M))      // Mute Teams
+#define MUTE_S LCTL(LSFT(KC_SPC))    // Mute Slack
+#define MUTE_T LCTL(LSFT(KC_M))      // Mute Teams
 
 #ifdef COMBO_ENABLE
 
