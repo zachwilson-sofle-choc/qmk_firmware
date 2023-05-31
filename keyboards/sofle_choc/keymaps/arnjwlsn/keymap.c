@@ -27,8 +27,9 @@ enum sofle_layers {
 
 #define NAV MO(_NAV)  // Momentarily turn on layer when pressed
 #define SYM MO(_SYM)  // Momentarily turn on layer when pressed
-#define MAC AG_SWAP   // Swap Alt/Opt and Gui/Cmd to work for Mac
-#define NIX AG_NORM   // Unswap Alt/Opt and Gui/Cmd to work for Linux (default)
+
+#define NIX CG_NORM   // Default behavior for Linux
+#define MAC CG_SWAP   // Swap ctrl & GUI (cmd) for Mac
 
 #define PRV_WS LCTL(LWIN(KC_LEFT))   // Previous workspace (formerly M2)
 #define NXT_WS LCTL(LWIN(KC_RIGHT))  // Next workspace (formerly M3)
@@ -183,7 +184,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|       |        |       |------+------+------+------+------+------|
  * |      |   ~  |   =  |   +  |   {  |   [  |-------|        |-------|   ]  |   }  |   <  |   >  |   |  |   |  |
  * `-----------------------------------------'  /------/    \------\  '-----------------------------------------'
- *               |      |      |      |      | /      /      \      \ |      |      |*TRNS*|      |
+ *               |      |      |      |      | /      /      \      \ |      |*TRNS*|      |      |
  *               `----------------------------/------/        \------\----------------------------'
  */
   [_SYM] = LAYOUT(
@@ -201,16 +202,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                        |------+------+------+------+------|------|
  * |      |      |   4  |   5  |   6  |      |-------.        ,-------|      | Right| Down | Right|      | Home |
  * |------+------+------+------+------+------|       |        |       |------+------+------+------+------+------|
- * |      |      |   7  |   8  |   9  |   0  |-------|        |-------|      |      | PrvWS| NxtWS| CSlsh| End  |
+ * |      |      |   7  |   8  |   9  |   0  |-------|        |-------| NIX  | MAC  | PrvWS| NxtWS| CSlsh| End  |
  * `-----------------------------------------'  /------/    \------\  '-----------------------------------------'
- *               |      |      |*TRNS*|      | /      /      \      \ |      |*TRNS*|      |      |
+ *               |      |      |*TRNS*|      | /      /      \      \ |      |      |*TRNS*|      |
  *               `----------------------------/------/        \------\----------------------------'
  */
   [_NAV] = LAYOUT(
-      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______,     MAC,
-      _______,    KC_0,    KC_1,    KC_2,    KC_3, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, KC_PSCR,     NIX,
+      _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______,
+      _______,    KC_0,    KC_1,    KC_2,    KC_3, XXXXXXX,                      XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, KC_PSCR, _______,
       _______, XXXXXXX,    KC_4,    KC_5,    KC_6, XXXXXXX,                      XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, KC_HOME,
-      _______, XXXXXXX,    KC_7,    KC_8,    KC_9,    KC_0, _______,    _______, XXXXXXX, XXXXXXX,  PRV_WS,  NXT_WS,  C_SLSH, KC_END,
+      _______, XXXXXXX,    KC_7,    KC_8,    KC_9,    KC_0, _______,    _______,     NIX,     MAC,  PRV_WS,  NXT_WS,  C_SLSH, KC_END,
                         _______, _______, KC_TRNS, _______, _______,    _______, _______, KC_TRNS, _______, _______),
 };
 
@@ -519,17 +520,17 @@ static void render_rocket(void) {
 
   switch (get_highest_layer(layer_state)) {
     case _SYM:
-      if (keymap_config.swap_lalt_lgui) {
-        oled_write_P(PSTR("s"), false);
+      if (keymap_config.swap_lctl_lgui) {
+        oled_write_P(PSTR("mac_s"), false);
       } else {
-        oled_write_P(PSTR("_s"), false);
+        oled_write_P(PSTR("s"), false);
       }
       break;
     case _NAV:
-      if (keymap_config.swap_lalt_lgui) {
-        oled_write_P(PSTR("n"), false);
+      if (keymap_config.swap_lctl_lgui) {
+        oled_write_P(PSTR("mac_n"), false);
       } else {
-        oled_write_P(PSTR("_n"), false);
+        oled_write_P(PSTR("n"), false);
       }
       break;
   }
