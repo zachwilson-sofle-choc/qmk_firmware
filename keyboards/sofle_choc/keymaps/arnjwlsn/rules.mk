@@ -14,7 +14,7 @@ EXTRAKEY_ENABLE = yes
 LTO_ENABLE = yes
 
 # Enable chording
-COMBO_ENABLE = yes
+COMBO_ENABLE = no
 
 # Reduce footprint: https://docs.qmk.fm/#/squeezing_avr?id=squeezing-the-most-out-of-avr
 COMMAND_ENABLE = no
